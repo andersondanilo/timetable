@@ -1,0 +1,66 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.Views = Elm.Timetable.Frontend.Views || {};
+Elm.Timetable.Frontend.Views.LayoutView = Elm.Timetable.Frontend.Views.LayoutView || {};
+Elm.Timetable.Frontend.Views.LayoutView.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.Views = _elm.Timetable.Frontend.Views || {};
+   _elm.Timetable.Frontend.Views.LayoutView = _elm.Timetable.Frontend.Views.LayoutView || {};
+   if (_elm.Timetable.Frontend.Views.LayoutView.values) return _elm.Timetable.Frontend.Views.LayoutView.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Common$Layout = Elm.Timetable.Common.Layout.make(_elm),
+   $Timetable$Common$ViewHelpers = Elm.Timetable.Common.ViewHelpers.make(_elm),
+   $Timetable$Frontend$Types = Elm.Timetable.Frontend.Types.make(_elm),
+   $Timetable$Frontend$Views$IndexView = Elm.Timetable.Frontend.Views.IndexView.make(_elm),
+   $Timetable$Frontend$Views$LoginView = Elm.Timetable.Frontend.Views.LoginView.make(_elm),
+   $Timetable$Frontend$Views$SignupView = Elm.Timetable.Frontend.Views.SignupView.make(_elm);
+   var _op = {};
+   var header = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("navbar navbar-default navbar-fixed-top")]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.$class("container")]),
+      _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("navbar-header")]),
+              _U.list([A2($Html.button,
+                      _U.list([$Html$Attributes.$class("navbar-toggle")]),
+                      _U.list([A2($Html.span,_U.list([$Html$Attributes.$class("sr-only")]),_U.list([$Html.text("Toggle navigation")]))
+                              ,A2($Html.span,_U.list([$Html$Attributes.$class("icon-bar")]),_U.list([]))
+                              ,A2($Html.span,_U.list([$Html$Attributes.$class("icon-bar")]),_U.list([]))
+                              ,A2($Html.span,_U.list([$Html$Attributes.$class("icon-bar")]),_U.list([]))]))
+                      ,A2($Html.a,
+                      _U.list([$Html$Attributes.$class("navbar-brand"),A2($Html$Events.onClick,address,$Timetable$Frontend$Types.NavigateTo(""))]),
+                      _U.list([$Html.text("TIMETABLE")]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("navbar-collapse collapse navbar-right")]),
+              _U.list([A2($Html.ul,
+              _U.list([$Html$Attributes.$class("nav navbar-nav")]),
+              _U.list([A2($Html.li,_U.list([]),_U.list([A2($Html.a,_U.list([$Html$Attributes.href("#login")]),_U.list([$Html.text("ENTRAR")]))]))]))]))]))]));
+   });
+   var showCurrentPage = F2(function (address,model) {
+      var _p0 = model.route;
+      switch (_p0.ctor)
+      {case "HomeRoute": return A2($Timetable$Frontend$Views$IndexView.showIndex,address,model);
+         case "SignupRoute": return $Timetable$Frontend$Views$SignupView.showSignup;
+         case "LoginRoute": return $Timetable$Frontend$Views$LoginView.showLogin;
+         default: return A2($Html.div,
+           _U.list([]),
+           _U.list([$Timetable$Common$ViewHelpers.showTitle("Página não encontrada")
+                   ,$Timetable$Common$ViewHelpers.showContent(_U.list([$Html.text("A página que você procura não foi encontrada")]))]));}
+   });
+   var index = F2(function (address,model) {
+      return A2($Html.div,_U.list([]),_U.list([A2(header,address,model),A2(showCurrentPage,address,model),$Timetable$Common$Layout.footerwrap]));
+   });
+   return _elm.Timetable.Frontend.Views.LayoutView.values = {_op: _op,index: index,showCurrentPage: showCurrentPage,header: header};
+};

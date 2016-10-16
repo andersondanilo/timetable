@@ -1,0 +1,43 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.App = Elm.Timetable.Frontend.App || {};
+Elm.Timetable.Frontend.App.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.App = _elm.Timetable.Frontend.App || {};
+   if (_elm.Timetable.Frontend.App.values) return _elm.Timetable.Frontend.App.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Effects = Elm.Effects.make(_elm),
+   $Hop$Navigate = Elm.Hop.Navigate.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp = Elm.StartApp.make(_elm),
+   $Timetable$Frontend$Routes = Elm.Timetable.Frontend.Routes.make(_elm),
+   $Timetable$Frontend$Types = Elm.Timetable.Frontend.Types.make(_elm),
+   $Timetable$Frontend$Views$LayoutView = Elm.Timetable.Frontend.Views.LayoutView.make(_elm);
+   var _op = {};
+   var update = F2(function (action,model) {
+      var _p0 = action;
+      switch (_p0.ctor)
+      {case "ApplyRoute": return {ctor: "_Tuple2",_0: _U.update(model,{route: _p0._0._0,location: _p0._0._1}),_1: $Effects.none};
+         case "NavigateTo": return {ctor: "_Tuple2"
+                                   ,_0: model
+                                   ,_1: A2($Effects.map,
+                                   $Timetable$Frontend$Types.HopAction,
+                                   A2($Hop$Navigate.navigateTo,$Timetable$Frontend$Routes.routerConfig,_p0._0))};
+         default: return {ctor: "_Tuple2",_0: model,_1: $Effects.none};}
+   });
+   var newModel = {location: $Hop$Types.newLocation,route: $Timetable$Frontend$Types.HomeRoute};
+   var init = {ctor: "_Tuple2",_0: newModel,_1: $Effects.none};
+   var startApp = $StartApp.start({init: init
+                                  ,update: update
+                                  ,view: $Timetable$Frontend$Views$LayoutView.index
+                                  ,inputs: _U.list([$Timetable$Frontend$Routes.taggedRouterSignal])});
+   return _elm.Timetable.Frontend.App.values = {_op: _op,newModel: newModel,init: init,update: update,startApp: startApp};
+};

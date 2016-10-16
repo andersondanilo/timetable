@@ -1,0 +1,51 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Backend = Elm.Timetable.Backend || {};
+Elm.Timetable.Backend.Dashboard = Elm.Timetable.Backend.Dashboard || {};
+Elm.Timetable.Backend.Dashboard.View = Elm.Timetable.Backend.Dashboard.View || {};
+Elm.Timetable.Backend.Dashboard.View.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Backend = _elm.Timetable.Backend || {};
+   _elm.Timetable.Backend.Dashboard = _elm.Timetable.Backend.Dashboard || {};
+   _elm.Timetable.Backend.Dashboard.View = _elm.Timetable.Backend.Dashboard.View || {};
+   if (_elm.Timetable.Backend.Dashboard.View.values) return _elm.Timetable.Backend.Dashboard.View.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Backend$Types = Elm.Timetable.Backend.Types.make(_elm),
+   $Timetable$Common$ViewHelpers = Elm.Timetable.Common.ViewHelpers.make(_elm);
+   var _op = {};
+   var showIcon = F2(function (name,image) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("col-md-4")]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.$class("row")]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("col-md-3")]),_U.list([]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-md-6 text-center")]),
+              _U.list([A2($Html.img,_U.list([$Html$Attributes.src(image),$Html$Attributes.$class("img-responsive")]),_U.list([]))
+                      ,A2($Html.h3,_U.list([]),_U.list([$Html.text(name)]))
+                      ,A2($Html.br,_U.list([]),_U.list([]))
+                      ,A2($Html.br,_U.list([]),_U.list([]))]))
+              ,A2($Html.div,_U.list([$Html$Attributes.$class("col-md-3")]),_U.list([]))]))]));
+   });
+   var showDashboard = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([]),
+      _U.list([$Timetable$Common$ViewHelpers.showTitle("Dashboard")
+              ,$Timetable$Common$ViewHelpers.showContent(_U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("row")]),
+              _U.list([A2(showIcon,"Agenda","assets/img/icons/clock-icon.png")
+                      ,A2(showIcon,"Gerenciar Especialidades","assets/img/icons/favourite-2-icon.png")
+                      ,A2(showIcon,"Gerenciar Salas","assets/img/icons/phonebook-icon.png")
+                      ,A2(showIcon,"Gerenciar Profissionais","assets/img/icons/contact-icon.png")
+                      ,A2(showIcon,"Configurações","assets/img/icons/settings-3-icon.png")]))]))]));
+   });
+   return _elm.Timetable.Backend.Dashboard.View.values = {_op: _op,showDashboard: showDashboard,showIcon: showIcon};
+};

@@ -1,0 +1,31 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Dashboard = Elm.Timetable.Dashboard || {};
+Elm.Timetable.Dashboard.Routes = Elm.Timetable.Dashboard.Routes || {};
+Elm.Timetable.Dashboard.Routes.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Dashboard = _elm.Timetable.Dashboard || {};
+   _elm.Timetable.Dashboard.Routes = _elm.Timetable.Dashboard.Routes || {};
+   if (_elm.Timetable.Dashboard.Routes.values) return _elm.Timetable.Dashboard.Routes.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Hop = Elm.Hop.make(_elm),
+   $Hop$Matchers = Elm.Hop.Matchers.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Dashboard$Types = Elm.Timetable.Dashboard.Types.make(_elm);
+   var _op = {};
+   var matchers = _U.list([A2($Hop$Matchers.match1,$Timetable$Dashboard$Types.HomeRoute,"")]);
+   var routerConfig = {hash: true,basePath: "",matchers: matchers,notFound: $Timetable$Dashboard$Types.NotFoundRoute};
+   var router = $Hop.$new(routerConfig);
+   var taggedRouterSignal = A2($Signal.map,$Timetable$Dashboard$Types.ApplyRoute,router.signal);
+   return _elm.Timetable.Dashboard.Routes.values = {_op: _op
+                                                   ,taggedRouterSignal: taggedRouterSignal
+                                                   ,matchers: matchers
+                                                   ,routerConfig: routerConfig
+                                                   ,router: router};
+};

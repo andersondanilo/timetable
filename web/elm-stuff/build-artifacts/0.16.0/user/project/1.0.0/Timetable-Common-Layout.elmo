@@ -1,0 +1,59 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Common = Elm.Timetable.Common || {};
+Elm.Timetable.Common.Layout = Elm.Timetable.Common.Layout || {};
+Elm.Timetable.Common.Layout.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Common = _elm.Timetable.Common || {};
+   _elm.Timetable.Common.Layout = _elm.Timetable.Common.Layout || {};
+   if (_elm.Timetable.Common.Layout.values) return _elm.Timetable.Common.Layout.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var footerwrap = A2($Html.div,
+   _U.list([$Html$Attributes.id("footerwrap")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("container")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("row")]),
+   _U.list([A2($Html.div,
+           _U.list([$Html$Attributes.$class("col-lg-4")]),
+           _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text("Sobre")]))
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("hline-w")]),_U.list([]))
+                   ,A2($Html.p,
+                   _U.list([]),
+                   _U.list([$Html.text("Somos um sistema de gerenciamento de horário pronto para atender as necessidades da sua empresa.")]))]))
+           ,A2($Html.div,
+           _U.list([$Html$Attributes.$class("col-lg-4")]),
+           _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text("Redes sociais")]))
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("hline-w")]),_U.list([]))
+                   ,A2($Html.p,
+                   _U.list([]),
+                   _U.list([A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-facebook")]),_U.list([]))]))
+                           ,A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter")]),_U.list([]))]))
+                           ,A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-instagram")]),_U.list([]))]))
+                           ,A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-tumblr")]),_U.list([]))]))]))]))
+           ,A2($Html.div,
+           _U.list([$Html$Attributes.$class("col-lg-4")]),
+           _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text("Contato")]))
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("hline-w")]),_U.list([]))
+                   ,A2($Html.p,
+                   _U.list([]),
+                   _U.list([$Html.text("contato@xxxxxxx.com.br"),A2($Html.br,_U.list([]),_U.list([])),$Html.text("(11) XXXX-XXXX")]))]))]))]))]));
+   return _elm.Timetable.Common.Layout.values = {_op: _op,footerwrap: footerwrap};
+};

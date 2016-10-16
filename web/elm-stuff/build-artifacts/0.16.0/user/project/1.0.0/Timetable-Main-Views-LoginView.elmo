@@ -1,0 +1,55 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Main = Elm.Timetable.Main || {};
+Elm.Timetable.Main.Views = Elm.Timetable.Main.Views || {};
+Elm.Timetable.Main.Views.LoginView = Elm.Timetable.Main.Views.LoginView || {};
+Elm.Timetable.Main.Views.LoginView.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Main = _elm.Timetable.Main || {};
+   _elm.Timetable.Main.Views = _elm.Timetable.Main.Views || {};
+   _elm.Timetable.Main.Views.LoginView = _elm.Timetable.Main.Views.LoginView || {};
+   if (_elm.Timetable.Main.Views.LoginView.values) return _elm.Timetable.Main.Views.LoginView.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Main$Views$Helpers = Elm.Timetable.Main.Views.Helpers.make(_elm);
+   var _op = {};
+   var formInput = F2(function (labelText,nameText) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("form-group")]),
+      _U.list([A2($Html.label,_U.list([]),_U.list([$Html.text(labelText)]))
+              ,A2($Html.input,_U.list([$Html$Attributes.name(nameText),$Html$Attributes.$class("form-control")]),_U.list([]))]));
+   });
+   var showRegisterForm = _U.list([$Timetable$Main$Views$Helpers.showSectionTitle("Cadastre-se")
+                                  ,A2($Html.p,_U.list([]),_U.list([$Html.text("Se você ainda não possui um cadastro")]))
+                                  ,A2($Html.a,
+                                  _U.list([$Html$Attributes.$class("btn btn-lg btn-primary"),$Html$Attributes.href("#signup")]),
+                                  _U.list([$Html.text("Começe agora")]))]);
+   var showEnterForm = _U.list([$Timetable$Main$Views$Helpers.showSectionTitle("Entrar")
+                               ,A2($Html.p,_U.list([]),_U.list([$Html.text("Se você já está cadastrado, entre através do formulário abaixo")]))
+                               ,A2($Html.form,
+                               _U.list([]),
+                               _U.list([A2(formInput,"E-mail","email")
+                                       ,A2(formInput,"Senha","senha")
+                                       ,A2($Html.button,
+                                       _U.list([$Html$Attributes.$class("btn btn-primary"),$Html$Attributes.type$("submit")]),
+                                       _U.list([$Html.text("Entrar")]))]))]);
+   var showLogin = A2($Html.div,
+   _U.list([]),
+   _U.list([$Timetable$Main$Views$Helpers.showTitle("Entrar")
+           ,$Timetable$Main$Views$Helpers.showContent(_U.list([A2($Html.div,
+           _U.list([$Html$Attributes.$class("row")]),
+           _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),showEnterForm)
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),showRegisterForm)]))]))]));
+   return _elm.Timetable.Main.Views.LoginView.values = {_op: _op
+                                                       ,showLogin: showLogin
+                                                       ,showEnterForm: showEnterForm
+                                                       ,showRegisterForm: showRegisterForm
+                                                       ,formInput: formInput};
+};

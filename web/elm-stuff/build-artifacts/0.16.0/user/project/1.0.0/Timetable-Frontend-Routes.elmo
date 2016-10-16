@@ -1,0 +1,33 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.Routes = Elm.Timetable.Frontend.Routes || {};
+Elm.Timetable.Frontend.Routes.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.Routes = _elm.Timetable.Frontend.Routes || {};
+   if (_elm.Timetable.Frontend.Routes.values) return _elm.Timetable.Frontend.Routes.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Hop = Elm.Hop.make(_elm),
+   $Hop$Matchers = Elm.Hop.Matchers.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Frontend$Types = Elm.Timetable.Frontend.Types.make(_elm);
+   var _op = {};
+   var matchers = _U.list([A2($Hop$Matchers.match1,$Timetable$Frontend$Types.HomeRoute,"")
+                          ,A2($Hop$Matchers.match1,$Timetable$Frontend$Types.SignupRoute,"/signup")
+                          ,A2($Hop$Matchers.match1,$Timetable$Frontend$Types.LoginRoute,"/login")]);
+   var routerConfig = {hash: true,basePath: "",matchers: matchers,notFound: $Timetable$Frontend$Types.NotFoundRoute};
+   var router = $Hop.$new(routerConfig);
+   var taggedRouterSignal = A2($Signal.map,$Timetable$Frontend$Types.ApplyRoute,router.signal);
+   return _elm.Timetable.Frontend.Routes.values = {_op: _op
+                                                  ,taggedRouterSignal: taggedRouterSignal
+                                                  ,matchers: matchers
+                                                  ,routerConfig: routerConfig
+                                                  ,router: router};
+};

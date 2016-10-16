@@ -1,0 +1,47 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.Views = Elm.Timetable.Frontend.Views || {};
+Elm.Timetable.Frontend.Views.SignupView = Elm.Timetable.Frontend.Views.SignupView || {};
+Elm.Timetable.Frontend.Views.SignupView.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.Views = _elm.Timetable.Frontend.Views || {};
+   _elm.Timetable.Frontend.Views.SignupView = _elm.Timetable.Frontend.Views.SignupView || {};
+   if (_elm.Timetable.Frontend.Views.SignupView.values) return _elm.Timetable.Frontend.Views.SignupView.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Common$ViewHelpers = Elm.Timetable.Common.ViewHelpers.make(_elm);
+   var _op = {};
+   var formInput = F2(function (labelText,nameText) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("form-group")]),
+      _U.list([A2($Html.label,_U.list([]),_U.list([$Html.text(labelText)]))
+              ,A2($Html.input,_U.list([$Html$Attributes.name(nameText),$Html$Attributes.$class("form-control")]),_U.list([]))]));
+   });
+   var showRegisterForm = _U.list([$Timetable$Common$ViewHelpers.showSectionTitle("Cadastre-se")
+                                  ,A2($Html.p,_U.list([]),_U.list([$Html.text("Digite as informações abaixo para efetuar o seu cadastro")]))
+                                  ,A2($Html.form,
+                                  _U.list([]),
+                                  _U.list([A2(formInput,"Nome","name")
+                                          ,A2(formInput,"E-mail","email")
+                                          ,A2(formInput,"Senha","password")
+                                          ,A2(formInput,"Repita a Senha","repeat_password")
+                                          ,A2($Html.button,
+                                          _U.list([$Html$Attributes.$class("btn btn-primary"),$Html$Attributes.type$("submit")]),
+                                          _U.list([$Html.text("Cadastrar")]))]))]);
+   var showSignup = A2($Html.div,
+   _U.list([]),
+   _U.list([$Timetable$Common$ViewHelpers.showTitle("Cadastre-se")
+           ,$Timetable$Common$ViewHelpers.showContent(_U.list([A2($Html.div,
+           _U.list([$Html$Attributes.$class("row")]),
+           _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),showRegisterForm)]))]))]));
+   return _elm.Timetable.Frontend.Views.SignupView.values = {_op: _op,showSignup: showSignup,showRegisterForm: showRegisterForm,formInput: formInput};
+};

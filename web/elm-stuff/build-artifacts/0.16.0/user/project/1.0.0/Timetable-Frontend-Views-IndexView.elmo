@@ -1,0 +1,61 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.Views = Elm.Timetable.Frontend.Views || {};
+Elm.Timetable.Frontend.Views.IndexView = Elm.Timetable.Frontend.Views.IndexView || {};
+Elm.Timetable.Frontend.Views.IndexView.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.Views = _elm.Timetable.Frontend.Views || {};
+   _elm.Timetable.Frontend.Views.IndexView = _elm.Timetable.Frontend.Views.IndexView || {};
+   if (_elm.Timetable.Frontend.Views.IndexView.values) return _elm.Timetable.Frontend.Views.IndexView.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Frontend$Types = Elm.Timetable.Frontend.Types.make(_elm);
+   var _op = {};
+   var service = F3(function (name,icon,description) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("col-md-4")]),
+      _U.list([A2($Html.i,_U.list([$Html$Attributes.$class(A2($Basics._op["++"],"fa fa-",icon))]),_U.list([]))
+              ,A2($Html.h4,_U.list([]),_U.list([$Html.text(name)]))
+              ,A2($Html.p,_U.list([]),_U.list([$Html.text(description)]))]));
+   });
+   var services = A2($Html.div,
+   _U.list([$Html$Attributes.id("service")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("container")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("row centered")]),
+   _U.list([A3(service,"Gerencie horários","clock-o","Cadastre o horário de determinado profissional em determinada hora, especialidade e quarto.")
+           ,A3(service,"Gerencie múltiplas agendas","calendar","Visualize e altere a agenda por profissional, especialidade ou quarto.")
+           ,A3(service,"Integre com outros sistemas","link","O sistema está aberto para integrações com outros sistemas.")]))]))]));
+   var headerwrap = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.id("headerwrap")]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.$class("container")]),
+      _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("row")]),
+              _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-lg-8 col-lg-offset-2")]),
+              _U.list([A2($Html.h3,_U.list([]),_U.list([$Html.text("Gerencie o horário de seu hospital ou clínica médica")]))
+                      ,A2($Html.h1,_U.list([]),_U.list([$Html.text("Rápido, fácil e intuitivo")]))]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-lg-8 col-lg-offset-2")]),
+              _U.list([A2($Html.a,
+              _U.list([$Html$Attributes.$class("btn btn-lg btn-theme"),$Html$Attributes.href("#signup")]),
+              _U.list([$Html.text("Começe agora")]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-lg-8 col-lg-offset-2 himg")]),
+              _U.list([A2($Html.img,_U.list([$Html$Attributes.src("assets/img/browser.png"),$Html$Attributes.$class("img-responsive")]),_U.list([]))]))]))]));
+   });
+   var showIndex = F2(function (address,model) {    return A2($Html.div,_U.list([]),_U.list([A2(headerwrap,address,model),services]));});
+   return _elm.Timetable.Frontend.Views.IndexView.values = {_op: _op,showIndex: showIndex,headerwrap: headerwrap,services: services,service: service};
+};

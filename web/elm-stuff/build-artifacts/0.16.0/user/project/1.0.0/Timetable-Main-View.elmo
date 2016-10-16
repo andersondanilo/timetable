@@ -1,0 +1,151 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Main = Elm.Timetable.Main || {};
+Elm.Timetable.Main.View = Elm.Timetable.Main.View || {};
+Elm.Timetable.Main.View.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Main = _elm.Timetable.Main || {};
+   _elm.Timetable.Main.View = _elm.Timetable.Main.View || {};
+   if (_elm.Timetable.Main.View.values) return _elm.Timetable.Main.View.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Timetable$Types = Elm.Timetable.Types.make(_elm);
+   var _op = {};
+   var footerwrap = A2($Html.div,
+   _U.list([$Html$Attributes.id("footerwrap")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("container")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("row")]),
+   _U.list([A2($Html.div,
+           _U.list([$Html$Attributes.$class("col-lg-4")]),
+           _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text("Sobre")]))
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("hline-w")]),_U.list([]))
+                   ,A2($Html.p,
+                   _U.list([]),
+                   _U.list([$Html.text("Somos um sistema de gerenciamento de horário pronto para atender as necessidades da sua empresa.")]))]))
+           ,A2($Html.div,
+           _U.list([$Html$Attributes.$class("col-lg-4")]),
+           _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text("Redes sociais")]))
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("hline-w")]),_U.list([]))
+                   ,A2($Html.p,
+                   _U.list([]),
+                   _U.list([A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-facebook")]),_U.list([]))]))
+                           ,A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter")]),_U.list([]))]))
+                           ,A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-instagram")]),_U.list([]))]))
+                           ,A2($Html.a,
+                           _U.list([$Html$Attributes.href("#")]),
+                           _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-tumblr")]),_U.list([]))]))]))]))
+           ,A2($Html.div,
+           _U.list([$Html$Attributes.$class("col-lg-4")]),
+           _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text("Contato")]))
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("hline-w")]),_U.list([]))
+                   ,A2($Html.p,
+                   _U.list([]),
+                   _U.list([$Html.text("contato@xxxxxxx.com.br"),A2($Html.br,_U.list([]),_U.list([])),$Html.text("(11) XXXX-XXXX")]))]))]))]))]));
+   var service = F3(function (name,icon,description) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("col-md-4")]),
+      _U.list([A2($Html.i,_U.list([$Html$Attributes.$class(A2($Basics._op["++"],"fa fa-",icon))]),_U.list([]))
+              ,A2($Html.h4,_U.list([]),_U.list([$Html.text(name)]))
+              ,A2($Html.p,_U.list([]),_U.list([$Html.text(description)]))]));
+   });
+   var services = A2($Html.div,
+   _U.list([$Html$Attributes.id("service")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("container")]),
+   _U.list([A2($Html.div,
+   _U.list([$Html$Attributes.$class("row centered")]),
+   _U.list([A3(service,"Gerencie horários","clock-o","Cadastre o horário de determinado profissional em determinada hora, especialidade e quarto.")
+           ,A3(service,"Gerencie múltiplas agendas","calendar","Visualize e altere a agenda por profissional, especialidade ou quarto.")
+           ,A3(service,"Integre com outros sistemas","link","O sistema está aberto para integrações com outros sistemas.")]))]))]));
+   var headerwrap = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.id("headerwrap")]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.$class("container")]),
+      _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("row")]),
+              _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-lg-8 col-lg-offset-2")]),
+              _U.list([A2($Html.h3,_U.list([]),_U.list([$Html.text("Gerencie o horário de seu hospital ou clínica médica")]))
+                      ,A2($Html.h1,_U.list([]),_U.list([$Html.text("Rápido, fácil e intuitivo")]))]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-lg-8 col-lg-offset-2")]),
+              _U.list([A2($Html.a,_U.list([$Html$Attributes.$class("btn btn-lg btn-theme")]),_U.list([$Html.text("Começe agora")]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("col-lg-8 col-lg-offset-2 himg")]),
+              _U.list([A2($Html.img,_U.list([$Html$Attributes.src("assets/img/browser.png"),$Html$Attributes.$class("img-responsive")]),_U.list([]))]))]))]));
+   });
+   var header = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class("navbar navbar-default navbar-fixed-top")]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.$class("container")]),
+      _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("navbar-header")]),
+              _U.list([A2($Html.button,
+                      _U.list([$Html$Attributes.$class("navbar-toggle")]),
+                      _U.list([A2($Html.span,_U.list([$Html$Attributes.$class("sr-only")]),_U.list([$Html.text("Toggle navigation")]))
+                              ,A2($Html.span,_U.list([$Html$Attributes.$class("icon-bar")]),_U.list([]))
+                              ,A2($Html.span,_U.list([$Html$Attributes.$class("icon-bar")]),_U.list([]))
+                              ,A2($Html.span,_U.list([$Html$Attributes.$class("icon-bar")]),_U.list([]))]))
+                      ,A2($Html.a,
+                      _U.list([$Html$Attributes.$class("navbar-brand"),A2($Html$Events.onClick,address,$Timetable$Types.NavigateTo(""))]),
+                      _U.list([$Html.text("TIMETABLE")]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("navbar-collapse collapse navbar-right")]),
+              _U.list([A2($Html.ul,
+              _U.list([$Html$Attributes.$class("nav navbar-nav")]),
+              _U.list([A2($Html.li,_U.list([]),_U.list([A2($Html.a,_U.list([$Html$Attributes.href("#signup")]),_U.list([$Html.text("ENTRAR")]))]))]))]))]))]));
+   });
+   var showContent = function (contentBody) {    return A2($Html.div,_U.list([$Html$Attributes.$class("container")]),contentBody);};
+   var showTitle = function (title) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.id("blue")]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("container")]),_U.list([A2($Html.h3,_U.list([]),_U.list([$Html.text(title)]))]))]));
+   };
+   var showCurrentPage = F2(function (address,model) {
+      var _p0 = model.route;
+      switch (_p0.ctor)
+      {case "HomeRoute": return A2($Html.div,_U.list([]),_U.list([A2(headerwrap,address,model),services]));
+         case "SignupRoute": return A2($Html.div,_U.list([]),_U.list([showTitle("Entrar"),showContent(_U.list([$Html.text("signup route")]))]));
+         default: return showContent(_U.list([$Html.text("not found route")]));}
+   });
+   var css = function (path) {    return A3($Html.node,"link",_U.list([$Html$Attributes.rel("stylesheet"),$Html$Attributes.href(path)]),_U.list([]));};
+   var index = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([]),
+      _U.list([css("assets/css/bootstrap.css")
+              ,css("assets/css/style.css")
+              ,css("assets/css/font-awesome.min.css")
+              ,A2(header,address,model)
+              ,A2(showCurrentPage,address,model)
+              ,footerwrap]));
+   });
+   return _elm.Timetable.Main.View.values = {_op: _op
+                                            ,css: css
+                                            ,index: index
+                                            ,showCurrentPage: showCurrentPage
+                                            ,showTitle: showTitle
+                                            ,showContent: showContent
+                                            ,header: header
+                                            ,headerwrap: headerwrap
+                                            ,services: services
+                                            ,service: service
+                                            ,footerwrap: footerwrap};
+};

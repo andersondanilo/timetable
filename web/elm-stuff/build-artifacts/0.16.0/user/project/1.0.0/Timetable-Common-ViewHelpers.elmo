@@ -1,0 +1,32 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Common = Elm.Timetable.Common || {};
+Elm.Timetable.Common.ViewHelpers = Elm.Timetable.Common.ViewHelpers || {};
+Elm.Timetable.Common.ViewHelpers.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Common = _elm.Timetable.Common || {};
+   _elm.Timetable.Common.ViewHelpers = _elm.Timetable.Common.ViewHelpers || {};
+   if (_elm.Timetable.Common.ViewHelpers.values) return _elm.Timetable.Common.ViewHelpers.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var showSectionTitle = function (title) {
+      return A2($Html.div,
+      _U.list([]),
+      _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text(title)])),A2($Html.div,_U.list([$Html$Attributes.$class("hline")]),_U.list([]))]));
+   };
+   var showContent = function (contentBody) {    return A2($Html.div,_U.list([$Html$Attributes.$class("container mtb")]),contentBody);};
+   var showTitle = function (title) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.id("blue")]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("container")]),_U.list([A2($Html.h3,_U.list([]),_U.list([$Html.text(title)]))]))]));
+   };
+   return _elm.Timetable.Common.ViewHelpers.values = {_op: _op,showTitle: showTitle,showContent: showContent,showSectionTitle: showSectionTitle};
+};

@@ -1,0 +1,14 @@
+web:
+  image: nginx
+  ports:
+    - "80:80"
+  volumes:
+    - ./web:/usr/share/nginx/html
+
+api:
+  build: api
+  volumes:
+    - ./api:/code
+  ports:
+    - 4000:4000
+  command: mix phoenix.server

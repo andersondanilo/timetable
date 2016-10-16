@@ -1,0 +1,32 @@
+Elm.Hop = Elm.Hop || {};
+Elm.Hop.Types = Elm.Hop.Types || {};
+Elm.Hop.Types.make = function (_elm) {
+   "use strict";
+   _elm.Hop = _elm.Hop || {};
+   _elm.Hop.Types = _elm.Hop.Types || {};
+   if (_elm.Hop.Types.values) return _elm.Hop.Types.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Combine = Elm.Combine.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Dict = Elm.Dict.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Task = Elm.Task.make(_elm);
+   var _op = {};
+   var newQuery = $Dict.empty;
+   var newLocation = {query: newQuery,path: _U.list([])};
+   var Router = F2(function (a,b) {    return {run: a,signal: b};});
+   var Config = F4(function (a,b,c,d) {    return {basePath: a,hash: b,matchers: c,notFound: d};});
+   var PathMatcher = F2(function (a,b) {    return {parser: a,segments: b};});
+   var Location = F2(function (a,b) {    return {path: a,query: b};});
+   return _elm.Hop.Types.values = {_op: _op
+                                  ,newLocation: newLocation
+                                  ,newQuery: newQuery
+                                  ,Config: Config
+                                  ,Router: Router
+                                  ,PathMatcher: PathMatcher
+                                  ,Location: Location};
+};

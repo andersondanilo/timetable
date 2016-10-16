@@ -1,0 +1,36 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.Types = Elm.Timetable.Frontend.Types || {};
+Elm.Timetable.Frontend.Types.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.Types = _elm.Timetable.Frontend.Types || {};
+   if (_elm.Timetable.Frontend.Types.values) return _elm.Timetable.Frontend.Types.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var NavigateTo = function (a) {    return {ctor: "NavigateTo",_0: a};};
+   var HopAction = function (a) {    return {ctor: "HopAction",_0: a};};
+   var ApplyRoute = function (a) {    return {ctor: "ApplyRoute",_0: a};};
+   var Model = F2(function (a,b) {    return {location: a,route: b};});
+   var NotFoundRoute = {ctor: "NotFoundRoute"};
+   var LoginRoute = {ctor: "LoginRoute"};
+   var SignupRoute = {ctor: "SignupRoute"};
+   var HomeRoute = {ctor: "HomeRoute"};
+   return _elm.Timetable.Frontend.Types.values = {_op: _op
+                                                 ,HomeRoute: HomeRoute
+                                                 ,SignupRoute: SignupRoute
+                                                 ,LoginRoute: LoginRoute
+                                                 ,NotFoundRoute: NotFoundRoute
+                                                 ,Model: Model
+                                                 ,ApplyRoute: ApplyRoute
+                                                 ,HopAction: HopAction
+                                                 ,NavigateTo: NavigateTo};
+};

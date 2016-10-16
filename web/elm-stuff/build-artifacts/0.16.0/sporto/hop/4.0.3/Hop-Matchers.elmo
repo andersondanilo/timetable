@@ -1,0 +1,120 @@
+Elm.Hop = Elm.Hop || {};
+Elm.Hop.Matchers = Elm.Hop.Matchers || {};
+Elm.Hop.Matchers.make = function (_elm) {
+   "use strict";
+   _elm.Hop = _elm.Hop || {};
+   _elm.Hop.Matchers = _elm.Hop.Matchers || {};
+   if (_elm.Hop.Matchers.values) return _elm.Hop.Matchers.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Combine = Elm.Combine.make(_elm),
+   $Combine$Infix = Elm.Combine.Infix.make(_elm),
+   $Combine$Num = Elm.Combine.Num.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
+   var _op = {};
+   var matcherToPath = F2(function (matcher,inputs) {
+      var makeSegment = F2(function (segment,input) {    return A2($Basics._op["++"],segment,input);});
+      var inputs$ = A2($List.append,inputs,_U.list([""]));
+      var path = A2($String.join,"",A3($List.map2,makeSegment,matcher.segments,inputs$));
+      return path;
+   });
+   var matchPathWithPathList = F3(function (routeParsers,notFoundAction,path) {
+      matchPathWithPathList: while (true) {
+         var _p0 = routeParsers;
+         if (_p0.ctor === "[]") {
+               return notFoundAction;
+            } else {
+               if (_p0._1.ctor === "[]") {
+                     var _p1 = A2($Combine.parse,_p0._0.parser,path);
+                     if (_p1._0.ctor === "Ok") {
+                           return _p1._0._0;
+                        } else {
+                           return notFoundAction;
+                        }
+                  } else {
+                     var _p2 = A2($Combine.parse,_p0._0.parser,path);
+                     if (_p2._0.ctor === "Ok") {
+                           return _p2._0._0;
+                        } else {
+                           var _v3 = _p0._1,_v4 = notFoundAction,_v5 = path;
+                           routeParsers = _v3;
+                           notFoundAction = _v4;
+                           path = _v5;
+                           continue matchPathWithPathList;
+                        }
+                  }
+            }
+      }
+   });
+   var matchPath = F2(function (config,path) {    return A3(matchPathWithPathList,config.matchers,config.notFound,path);});
+   var matchLocation = F2(function (config,location) {
+      var pathString = A2($String.join,"/",A2($List._op["::"],"",location.path));
+      return A2(matchPath,config,pathString);
+   });
+   var str = $Combine.regex("[^/]+");
+   var $int = $Combine$Num.$int;
+   var parserWithBeginningAndEnd = function (parser) {    return A2($Combine$Infix._op["<*"],parser,$Combine.end);};
+   var match1 = F2(function (constructor,segment1) {
+      var constructor$ = function (_p3) {    var _p4 = _p3;return constructor;};
+      var parser = A2($Combine.map,constructor$,parserWithBeginningAndEnd($Combine.skip($Combine.string(segment1))));
+      return {parser: parser,segments: _U.list([segment1])};
+   });
+   var match2 = F3(function (constructor,segment1,parser1) {
+      var parser = A2($Combine.map,constructor,parserWithBeginningAndEnd(A2($Combine$Infix._op["*>"],$Combine.string(segment1),parser1)));
+      return {parser: parser,segments: _U.list([segment1])};
+   });
+   var match3 = F4(function (constructor,segment1,parser1,segment2) {
+      var parser = A2($Combine.map,
+      constructor,
+      parserWithBeginningAndEnd(A2($Combine$Infix._op["<*"],A2($Combine$Infix._op["*>"],$Combine.string(segment1),parser1),$Combine.string(segment2))));
+      return {parser: parser,segments: _U.list([segment1,segment2])};
+   });
+   var match4 = F5(function (constructor,segment1,parser1,segment2,parser2) {
+      var constructor$ = function (_p5) {    var _p6 = _p5;return A2(constructor,_p6._0,_p6._1);};
+      var parser = A2($Combine.map,
+      constructor$,
+      parserWithBeginningAndEnd(A2($Combine.andThen,
+      A2($Combine$Infix._op["*>"],$Combine.string(segment1),parser1),
+      function (r) {
+         return A2($Combine.map,function (x) {    return {ctor: "_Tuple2",_0: r,_1: x};},A2($Combine$Infix._op["*>"],$Combine.string(segment2),parser2));
+      })));
+      return {parser: parser,segments: _U.list([segment1,segment2])};
+   });
+   var nested1 = F3(function (constructor,segment1,children) {
+      var childrenParsers = A2($List.map,function (_) {    return _.parser;},children);
+      var parser = A2($Combine.map,
+      constructor,
+      parserWithBeginningAndEnd(A2($Combine.andThen,$Combine.string(segment1),function (x) {    return $Combine.choice(childrenParsers);})));
+      return {parser: parser,segments: _U.list([segment1])};
+   });
+   var nested2 = F4(function (constructor,segment1,parser1,children) {
+      var constructor$ = function (_p7) {    var _p8 = _p7;return A2(constructor,_p8._0,_p8._1);};
+      var childrenParsers = A2($List.map,function (_) {    return _.parser;},children);
+      var parser = A2($Combine.map,
+      constructor$,
+      parserWithBeginningAndEnd(A2($Combine.andThen,
+      A2($Combine$Infix._op["*>"],$Combine.string(segment1),parser1),
+      function (r) {
+         return A2($Combine.map,function (x) {    return {ctor: "_Tuple2",_0: r,_1: x};},$Combine.choice(childrenParsers));
+      })));
+      return {parser: parser,segments: _U.list([segment1])};
+   });
+   return _elm.Hop.Matchers.values = {_op: _op
+                                     ,match1: match1
+                                     ,match2: match2
+                                     ,match3: match3
+                                     ,match4: match4
+                                     ,nested1: nested1
+                                     ,nested2: nested2
+                                     ,$int: $int
+                                     ,str: str
+                                     ,matchPath: matchPath
+                                     ,matchLocation: matchLocation
+                                     ,matcherToPath: matcherToPath};
+};

@@ -1,0 +1,31 @@
+Elm.Hop = Elm.Hop || {};
+Elm.Hop.Navigate = Elm.Hop.Navigate || {};
+Elm.Hop.Navigate.make = function (_elm) {
+   "use strict";
+   _elm.Hop = _elm.Hop || {};
+   _elm.Hop.Navigate = _elm.Hop.Navigate || {};
+   if (_elm.Hop.Navigate.values) return _elm.Hop.Navigate.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Effects = Elm.Effects.make(_elm),
+   $History = Elm.History.make(_elm),
+   $Hop$Location = Elm.Hop.Location.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var navigateToLocation = F2(function (config,location) {
+      var fullPath = A2($Hop$Location.locationToFullPath,config,location);
+      var path = _U.eq(fullPath,"") ? "/" : fullPath;
+      return $Effects.task($History.setPath(path));
+   });
+   var addQuery = F3(function (config,query,currentLocation) {    return A2(navigateToLocation,config,A2($Hop$Location.addQuery,query,currentLocation));});
+   var setQuery = F3(function (config,query,currentLocation) {    return A2(navigateToLocation,config,A2($Hop$Location.setQuery,query,currentLocation));});
+   var removeQuery = F3(function (config,key,currentLocation) {    return A2(navigateToLocation,config,A2($Hop$Location.removeQuery,key,currentLocation));});
+   var clearQuery = F2(function (config,currentLocation) {    return A2(navigateToLocation,config,$Hop$Location.clearQuery(currentLocation));});
+   var navigateTo = F2(function (config,route) {    return A2(navigateToLocation,config,$Hop$Location.locationFromUser(route));});
+   return _elm.Hop.Navigate.values = {_op: _op,navigateTo: navigateTo,addQuery: addQuery,setQuery: setQuery,removeQuery: removeQuery,clearQuery: clearQuery};
+};

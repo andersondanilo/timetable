@@ -1,0 +1,26 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   if (_elm.Timetable.values) return _elm.Timetable.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Effects = Elm.Effects.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp = Elm.StartApp.make(_elm),
+   $Task = Elm.Task.make(_elm),
+   $Timetable$App = Elm.Timetable.App.make(_elm),
+   $Timetable$Routes = Elm.Timetable.Routes.make(_elm),
+   $Timetable$Types = Elm.Timetable.Types.make(_elm);
+   var _op = {};
+   var routeRunTask = Elm.Native.Task.make(_elm).perform($Timetable$Routes.router.run);
+   var app = $Timetable$App.startApp;
+   var main = app.html;
+   var tasks = Elm.Native.Task.make(_elm).performSignal("tasks",app.tasks);
+   return _elm.Timetable.values = {_op: _op,app: app,main: main};
+};

@@ -1,0 +1,97 @@
+Elm.Hop = Elm.Hop || {};
+Elm.Hop.Location = Elm.Hop.Location || {};
+Elm.Hop.Location.make = function (_elm) {
+   "use strict";
+   _elm.Hop = _elm.Hop || {};
+   _elm.Hop.Location = _elm.Hop.Location || {};
+   if (_elm.Hop.Location.values) return _elm.Hop.Location.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Dict = Elm.Dict.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $Http = Elm.Http.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Regex = Elm.Regex.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
+   var _op = {};
+   var clearQuery = function (location) {    return _U.update(location,{query: $Dict.empty});};
+   var removeQuery = F2(function (key,location) {    var updatedQuery = A2($Dict.remove,key,location.query);return _U.update(location,{query: updatedQuery});});
+   var setQuery = F2(function (query,location) {    return _U.update(location,{query: query});});
+   var addQuery = F2(function (query,location) {    var updatedQuery = A2($Dict.union,query,location.query);return _U.update(location,{query: updatedQuery});});
+   var queryKVtoTuple = function (kv) {
+      var splitted = A2($String.split,"=",kv);
+      var first = A2($Maybe.withDefault,"",$List.head(splitted));
+      var firstDecoded = $Http.uriDecode(first);
+      var second = A2($Maybe.withDefault,"",$List.head(A2($List.drop,1,splitted)));
+      var secondDecoded = $Http.uriDecode(second);
+      return {ctor: "_Tuple2",_0: firstDecoded,_1: secondDecoded};
+   };
+   var extractQuery = function (route) {    return A2($Maybe.withDefault,"",$List.head(A2($List.drop,1,A2($String.split,"?",route))));};
+   var parseQuery = function (route) {
+      return $Dict.fromList(A2($List.map,
+      queryKVtoTuple,
+      A2($List.filter,function (_p0) {    return $Basics.not($String.isEmpty(_p0));},A2($String.split,"&",extractQuery(route)))));
+   };
+   var extractPath = function (route) {
+      return A2($Maybe.withDefault,"",$List.head(A2($String.split,"?",A2($Maybe.withDefault,"",$List.head($List.reverse(A2($String.split,"#",route)))))));
+   };
+   var parsePath = function (route) {
+      return A2($List.filter,function (segment) {    return $Basics.not($String.isEmpty(segment));},A2($String.split,"/",extractPath(route)));
+   };
+   var parse = function (route) {    return {path: parsePath(route),query: parseQuery(route)};};
+   var hrefToLocationString = F2(function (config,href) {
+      var withoutProtocol = A2($Maybe.withDefault,"",$List.head($List.reverse(A2($String.split,"//",href))));
+      var withoutDomain = A2($String.append,"/",A2($String.join,"/",A2($Maybe.withDefault,_U.list([]),$List.tail(A2($String.split,"/",withoutProtocol)))));
+      return config.hash ? A2($Maybe.withDefault,"",$List.head(A2($List.drop,1,A2($String.split,"#",withoutDomain)))) : A2($Maybe.withDefault,
+      "",
+      $List.head(A2($String.split,"#",withoutDomain)));
+   });
+   var locationStringWithoutBase = F2(function (config,locationString) {
+      var regex = $Regex.regex(config.basePath);
+      return A4($Regex.replace,$Regex.AtMost(1),regex,$Basics.always(""),locationString);
+   });
+   var hrefToLocation = F2(function (config,href) {
+      var relevantLocationString = A2(hrefToLocationString,config,href);
+      return config.hash ? parse(relevantLocationString) : parse(A2(locationStringWithoutBase,config,relevantLocationString));
+   });
+   var queryFromLocation = function (location) {
+      return $Dict.isEmpty(location.query) ? "" : A2($String.append,
+      "?",
+      A2($String.join,
+      "&",
+      A2($List.map,function (_p1) {    var _p2 = _p1;return A2($Basics._op["++"],_p2._0,A2($Basics._op["++"],"=",_p2._1));},$Dict.toList(location.query))));
+   };
+   var locationFromUser = function (route) {
+      var normalized = A2($String.startsWith,"#",route) ? route : A2($Basics._op["++"],"#",route);
+      return parse(normalized);
+   };
+   var locationToFullPath = F2(function (config,location) {
+      var dedupSlash = A3($Regex.replace,$Regex.All,$Regex.regex("/+"),function (_p3) {    return "/";});
+      var prefix = config.hash ? "#/" : "";
+      var query = queryFromLocation(location);
+      var path$ = config.hash ? location.path : A2($List._op["::"],config.basePath,location.path);
+      var joined = A2($String.join,"/",path$);
+      return dedupSlash(A2($Basics._op["++"],prefix,A2($Basics._op["++"],joined,query)));
+   });
+   return _elm.Hop.Location.values = {_op: _op
+                                     ,locationToFullPath: locationToFullPath
+                                     ,locationFromUser: locationFromUser
+                                     ,queryFromLocation: queryFromLocation
+                                     ,locationStringWithoutBase: locationStringWithoutBase
+                                     ,hrefToLocationString: hrefToLocationString
+                                     ,hrefToLocation: hrefToLocation
+                                     ,parse: parse
+                                     ,extractPath: extractPath
+                                     ,parsePath: parsePath
+                                     ,extractQuery: extractQuery
+                                     ,parseQuery: parseQuery
+                                     ,queryKVtoTuple: queryKVtoTuple
+                                     ,addQuery: addQuery
+                                     ,setQuery: setQuery
+                                     ,removeQuery: removeQuery
+                                     ,clearQuery: clearQuery};
+};

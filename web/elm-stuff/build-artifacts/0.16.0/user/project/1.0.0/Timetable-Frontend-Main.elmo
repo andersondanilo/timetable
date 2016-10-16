@@ -1,0 +1,30 @@
+Elm.Timetable = Elm.Timetable || {};
+Elm.Timetable.Frontend = Elm.Timetable.Frontend || {};
+Elm.Timetable.Frontend.Main = Elm.Timetable.Frontend.Main || {};
+Elm.Timetable.Frontend.Main.make = function (_elm) {
+   "use strict";
+   _elm.Timetable = _elm.Timetable || {};
+   _elm.Timetable.Frontend = _elm.Timetable.Frontend || {};
+   _elm.Timetable.Frontend.Main = _elm.Timetable.Frontend.Main || {};
+   if (_elm.Timetable.Frontend.Main.values) return _elm.Timetable.Frontend.Main.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Effects = Elm.Effects.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp = Elm.StartApp.make(_elm),
+   $Task = Elm.Task.make(_elm),
+   $Timetable$Frontend$App = Elm.Timetable.Frontend.App.make(_elm),
+   $Timetable$Frontend$Routes = Elm.Timetable.Frontend.Routes.make(_elm),
+   $Timetable$Frontend$Types = Elm.Timetable.Frontend.Types.make(_elm);
+   var _op = {};
+   var routeRunTask = Elm.Native.Task.make(_elm).perform($Timetable$Frontend$Routes.router.run);
+   var app = $Timetable$Frontend$App.startApp;
+   var main = app.html;
+   var tasks = Elm.Native.Task.make(_elm).performSignal("tasks",app.tasks);
+   return _elm.Timetable.Frontend.Main.values = {_op: _op,app: app,main: main};
+};

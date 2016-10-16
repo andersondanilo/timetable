@@ -1,0 +1,25 @@
+Elm.Hop = Elm.Hop || {};
+Elm.Hop.make = function (_elm) {
+   "use strict";
+   _elm.Hop = _elm.Hop || {};
+   if (_elm.Hop.values) return _elm.Hop.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $History = Elm.History.make(_elm),
+   $Hop$Location = Elm.Hop.Location.make(_elm),
+   $Hop$Matchers = Elm.Hop.Matchers.make(_elm),
+   $Hop$Types = Elm.Hop.Types.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Task = Elm.Task.make(_elm);
+   var _op = {};
+   var locationSignal = function (config) {    return A2($Signal.map,$Hop$Location.hrefToLocation(config),$History.href);};
+   var resolveLocation = F2(function (config,location) {    return {ctor: "_Tuple2",_0: A2($Hop$Matchers.matchLocation,config,location),_1: location};});
+   var routerSignal = function (config) {    var signal = locationSignal(config);return A2($Signal.map,resolveLocation(config),signal);};
+   var run = function (config) {    return $History.replacePath("");};
+   var $new = function (config) {    return {run: run(config),signal: routerSignal(config)};};
+   return _elm.Hop.values = {_op: _op,$new: $new};
+};
