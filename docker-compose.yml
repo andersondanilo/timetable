@@ -9,6 +9,25 @@ api:
   build: api
   volumes:
     - ./api:/code
+    - ./api/.hex:/root/.hex
   ports:
     - 4000:4000
+  working_dir: /code/timetable
   command: mix phoenix.server
+  links:
+    - database
+    - database_test
+
+database:
+  image: postgres
+  environment:
+    - POSTGRES_USER=timetable_user
+    - POSTGRES_DB=timetable_db
+    - POSTGRES_PASSWORD=timetable@password
+
+database_test:
+    image: postgres
+    environment:
+    - POSTGRES_USER=timetable_user
+    - POSTGRES_DB=timetable_db
+    - POSTGRES_PASSWORD=timetable@password
