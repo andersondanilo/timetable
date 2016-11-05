@@ -8,19 +8,19 @@ defmodule Timetable.UserController do
     render(conn, data: users)
   end
 
-  def create(conn, %{"user" => user_params}) do
-    changeset = User.changeset(%User{}, user_params)
+  def create(conn, %{"data" => data}) do
+    attrs = JaSerializer.Params.to_attributes(data)
+    changeset = User.changeset(%User{}, attrs)
 
     case Repo.insert(changeset) do
       {:ok, user} ->
         conn
         |> put_status(:created)
-        |> put_resp_header("location", user_path(conn, :show, user))
-        |> render(data: user)
+        |> render(:show, data: user)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Timetable.ChangesetView, "error.json", changeset: changeset)
+        |> render(:errors, data: changeset)
     end
   end
 
@@ -29,17 +29,18 @@ defmodule Timetable.UserController do
     render(conn, data: user)
   end
 
-  def update(conn, %{"id" => id, "user" => user_params}) do
+  def update(conn, %{"id" => id, "data" => data}) do
+    attrs = JaSerializer.Params.to_attributes(data)
     user = Repo.get!(User, id)
-    changeset = User.changeset(user, user_params)
+    changeset = User.changeset(user, attrs)
 
     case Repo.update(changeset) do
       {:ok, user} ->
-        render(conn, data: user)
+        render(conn, :show, data: user)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Timetable.ChangesetView, "error.json", changeset: changeset)
+        |> render(:errors, data: changeset)
     end
   end
 

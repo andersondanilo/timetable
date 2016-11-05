@@ -2,7 +2,7 @@ defmodule Timetable.Router do
   use Timetable.Web, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json-api"]
   end
 
   scope "/", Timetable do
