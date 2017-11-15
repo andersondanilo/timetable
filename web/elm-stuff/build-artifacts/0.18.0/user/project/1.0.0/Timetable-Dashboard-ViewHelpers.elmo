@@ -1,0 +1,3 @@
+var _user$project$Timetable_Dashboard_ViewHelpers$clickTo = function (path) {
+	return A2(_user$project$Timetable_Common_ViewHelpers$commonClickTo, _user$project$Timetable_Dashboard_Types$NavigateTo, path);
+};

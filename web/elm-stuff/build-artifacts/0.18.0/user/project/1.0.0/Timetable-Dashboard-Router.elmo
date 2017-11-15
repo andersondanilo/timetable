@@ -1,0 +1,22 @@
+var _user$project$Timetable_Dashboard_Router$parser = _evancz$url_parser$UrlParser$oneOf(
+	{
+		ctor: '::',
+		_0: A2(_evancz$url_parser$UrlParser$map, _user$project$Timetable_Dashboard_Types$IndexRoute, _evancz$url_parser$UrlParser$top),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_evancz$url_parser$UrlParser$map,
+				_user$project$Timetable_Dashboard_Types$IndexRoute,
+				_evancz$url_parser$UrlParser$s('dashboard')),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Timetable_Dashboard_Router$toRoute = function (location) {
+	var maybeRoute = A2(_evancz$url_parser$UrlParser$parsePath, _user$project$Timetable_Dashboard_Router$parser, location);
+	var _p0 = maybeRoute;
+	if (_p0.ctor === 'Nothing') {
+		return _user$project$Timetable_Dashboard_Types$NotFoundRoute;
+	} else {
+		return _p0._0;
+	}
+};

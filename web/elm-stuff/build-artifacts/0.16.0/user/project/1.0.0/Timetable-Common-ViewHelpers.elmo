@@ -17,16 +17,16 @@ Elm.Timetable.Common.ViewHelpers.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var showSectionTitle = function (title) {
+   var renderSectionTitle = function (title) {
       return A2($Html.div,
       _U.list([]),
       _U.list([A2($Html.h4,_U.list([]),_U.list([$Html.text(title)])),A2($Html.div,_U.list([$Html$Attributes.$class("hline")]),_U.list([]))]));
    };
-   var showContent = function (contentBody) {    return A2($Html.div,_U.list([$Html$Attributes.$class("container mtb")]),contentBody);};
-   var showTitle = function (title) {
+   var renderContent = function (contentBody) {    return A2($Html.div,_U.list([$Html$Attributes.$class("container mtb")]),contentBody);};
+   var renderTitle = function (title) {
       return A2($Html.div,
       _U.list([$Html$Attributes.id("blue")]),
       _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("container")]),_U.list([A2($Html.h3,_U.list([]),_U.list([$Html.text(title)]))]))]));
    };
-   return _elm.Timetable.Common.ViewHelpers.values = {_op: _op,showTitle: showTitle,showContent: showContent,showSectionTitle: showSectionTitle};
+   return _elm.Timetable.Common.ViewHelpers.values = {_op: _op,renderTitle: renderTitle,renderContent: renderContent,renderSectionTitle: renderSectionTitle};
 };

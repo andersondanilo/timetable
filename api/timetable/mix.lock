@@ -1,4 +1,5 @@
-%{"connection": {:hex, :connection, "1.0.4"},
+%{"base64url": {:hex, :base64url, "0.0.1"},
+  "connection": {:hex, :connection, "1.0.4"},
   "cowboy": {:hex, :cowboy, "1.0.4"},
   "cowlib": {:hex, :cowlib, "1.0.2"},
   "db_connection": {:hex, :db_connection, "1.0.0"},
@@ -6,8 +7,10 @@
   "ecto": {:hex, :ecto, "2.0.5"},
   "fs": {:hex, :fs, "0.9.2"},
   "gettext": {:hex, :gettext, "0.12.1"},
+  "guardian": {:hex, :guardian, "0.13.0"},
   "inflex": {:hex, :inflex, "1.8.0"},
   "ja_serializer": {:hex, :ja_serializer, "0.11.1"},
+  "jose": {:hex, :jose, "1.8.0"},
   "mime": {:hex, :mime, "1.0.1"},
   "phoenix": {:hex, :phoenix, "1.2.1"},
   "phoenix_ecto": {:hex, :phoenix_ecto, "3.0.1"},
@@ -18,4 +21,5 @@
   "poison": {:hex, :poison, "2.2.0"},
   "poolboy": {:hex, :poolboy, "1.5.1"},
   "postgrex": {:hex, :postgrex, "0.12.1"},
-  "ranch": {:hex, :ranch, "1.2.1"}}
+  "ranch": {:hex, :ranch, "1.2.1"},
+  "uuid": {:hex, :uuid, "1.1.5"}}

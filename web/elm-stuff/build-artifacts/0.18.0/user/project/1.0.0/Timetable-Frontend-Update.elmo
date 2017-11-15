@@ -1,0 +1,66 @@
+var _user$project$Timetable_Frontend_Update$handleMsgForLoginPage = F2(
+	function (msg, model) {
+		var _p0 = A3(_user$project$Timetable_Frontend_LoginPage_Update$update, msg, model.loginPage, model);
+		var newNestedModel = _p0._0;
+		var newModel = _p0._1;
+		var cmd = _p0._2;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				newModel,
+				{loginPage: newNestedModel}),
+			_1: cmd
+		};
+	});
+var _user$project$Timetable_Frontend_Update$handleMsgForSignupPage = F2(
+	function (msg, model) {
+		var _p1 = A3(_user$project$Timetable_Frontend_SignupPage_Update$update, msg, model.signupPage, model);
+		var newNestedModel = _p1._0;
+		var newModel = _p1._1;
+		var cmd = _p1._2;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				newModel,
+				{signupPage: newNestedModel}),
+			_1: cmd
+		};
+	});
+var _user$project$Timetable_Frontend_Update$update = F2(
+	function (msg, model) {
+		var _p2 = msg;
+		switch (_p2.ctor) {
+			case 'UrlChange':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							currentRoute: _user$project$Timetable_Frontend_Common_Router$toRoute(_p2._0)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'NavigateTo':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _elm_lang$navigation$Navigation$newUrl(_p2._0)
+				};
+			case 'MsgForSignupPage':
+				return A2(_user$project$Timetable_Frontend_Update$handleMsgForSignupPage, _p2._0, model);
+			default:
+				return A2(_user$project$Timetable_Frontend_Update$handleMsgForLoginPage, _p2._0, model);
+		}
+	});
+var _user$project$Timetable_Frontend_Update$MsgForLoginPage = function (a) {
+	return {ctor: 'MsgForLoginPage', _0: a};
+};
+var _user$project$Timetable_Frontend_Update$MsgForSignupPage = function (a) {
+	return {ctor: 'MsgForSignupPage', _0: a};
+};
+var _user$project$Timetable_Frontend_Update$NavigateTo = function (a) {
+	return {ctor: 'NavigateTo', _0: a};
+};
+var _user$project$Timetable_Frontend_Update$UrlChange = function (a) {
+	return {ctor: 'UrlChange', _0: a};
+};

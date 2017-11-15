@@ -1,0 +1,11 @@
+var _user$project$Timetable_Dashboard_Types$Model = function (a) {
+	return {currentRoute: a};
+};
+var _user$project$Timetable_Dashboard_Types$NavigateTo = function (a) {
+	return {ctor: 'NavigateTo', _0: a};
+};
+var _user$project$Timetable_Dashboard_Types$UrlChange = function (a) {
+	return {ctor: 'UrlChange', _0: a};
+};
+var _user$project$Timetable_Dashboard_Types$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$Timetable_Dashboard_Types$IndexRoute = {ctor: 'IndexRoute'};

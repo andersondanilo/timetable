@@ -1,0 +1,195 @@
+var _user$project$Timetable_Dashboard_Views_LayoutView$header = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('navbar navbar-default navbar-fixed-top'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('container'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('navbar-header'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('navbar-toggle'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$span,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('sr-only'),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Toggle navigation'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$span,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('icon-bar'),
+												_1: {ctor: '[]'}
+											},
+											{ctor: '[]'}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$span,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('icon-bar'),
+													_1: {ctor: '[]'}
+												},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$span,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class('icon-bar'),
+														_1: {ctor: '[]'}
+													},
+													{ctor: '[]'}),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('navbar-brand'),
+											_1: {ctor: '[]'}
+										},
+										_user$project$Timetable_Dashboard_ViewHelpers$clickTo('/dashboard')),
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('TIMETABLE'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('navbar-collapse collapse navbar-right'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$ul,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('nav navbar-nav'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$li,
+											{ctor: '[]'},
+											{ctor: '[]'}),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Timetable_Dashboard_Views_LayoutView$viewCurrentPage = function (model) {
+	var _p0 = model.currentRoute;
+	if (_p0.ctor === 'IndexRoute') {
+		return _user$project$Timetable_Dashboard_Dashboard_View$viewDashboard(model);
+	} else {
+		return A2(
+			_elm_lang$html$Html$div,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _user$project$Timetable_Common_ViewHelpers$viewTitle('Página não encontrada'),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Timetable_Common_ViewHelpers$viewContent(
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('A página que você procura não foi encontrada'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			});
+	}
+};
+var _user$project$Timetable_Dashboard_Views_LayoutView$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$Timetable_Dashboard_Views_LayoutView$header(model),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Timetable_Dashboard_Views_LayoutView$viewCurrentPage(model),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Timetable_Common_Layout$footerwrap,
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Timetable_Dashboard_Views_LayoutView$css = function (path) {
+	return A3(
+		_elm_lang$html$Html$node,
+		'link',
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$rel('stylesheet'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href(path),
+				_1: {ctor: '[]'}
+			}
+		},
+		{ctor: '[]'});
+};

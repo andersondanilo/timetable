@@ -21,7 +21,7 @@ Elm.Timetable.Dashboard.Dashboard.View.make = function (_elm) {
    $Timetable$Common$ViewHelpers = Elm.Timetable.Common.ViewHelpers.make(_elm),
    $Timetable$Dashboard$Types = Elm.Timetable.Dashboard.Types.make(_elm);
    var _op = {};
-   var showIcon = F2(function (name,image) {
+   var renderIcon = F2(function (name,image) {
       return A2($Html.div,
       _U.list([$Html$Attributes.$class("col-md-4")]),
       _U.list([A2($Html.div,
@@ -35,17 +35,17 @@ Elm.Timetable.Dashboard.Dashboard.View.make = function (_elm) {
                       ,A2($Html.br,_U.list([]),_U.list([]))]))
               ,A2($Html.div,_U.list([$Html$Attributes.$class("col-md-3")]),_U.list([]))]))]));
    });
-   var showDashboard = F2(function (address,model) {
+   var renderDashboard = F2(function (address,model) {
       return A2($Html.div,
       _U.list([]),
-      _U.list([$Timetable$Common$ViewHelpers.showTitle("Dashboard")
-              ,$Timetable$Common$ViewHelpers.showContent(_U.list([A2($Html.div,
+      _U.list([$Timetable$Common$ViewHelpers.renderTitle("Dashboard")
+              ,$Timetable$Common$ViewHelpers.renderContent(_U.list([A2($Html.div,
               _U.list([$Html$Attributes.$class("row")]),
-              _U.list([A2(showIcon,"Agenda","assets/img/icons/clock-icon.png")
-                      ,A2(showIcon,"Gerenciar Especialidades","assets/img/icons/favourite-2-icon.png")
-                      ,A2(showIcon,"Gerenciar Salas","assets/img/icons/phonebook-icon.png")
-                      ,A2(showIcon,"Gerenciar Profissionais","assets/img/icons/contact-icon.png")
-                      ,A2(showIcon,"Configurações","assets/img/icons/settings-3-icon.png")]))]))]));
+              _U.list([A2(renderIcon,"Agenda","assets/img/icons/clock-icon.png")
+                      ,A2(renderIcon,"Gerenciar Especialidades","assets/img/icons/favourite-2-icon.png")
+                      ,A2(renderIcon,"Gerenciar Salas","assets/img/icons/phonebook-icon.png")
+                      ,A2(renderIcon,"Gerenciar Profissionais","assets/img/icons/contact-icon.png")
+                      ,A2(renderIcon,"Configurações","assets/img/icons/settings-3-icon.png")]))]))]));
    });
-   return _elm.Timetable.Dashboard.Dashboard.View.values = {_op: _op,showDashboard: showDashboard,showIcon: showIcon};
+   return _elm.Timetable.Dashboard.Dashboard.View.values = {_op: _op,renderDashboard: renderDashboard,renderIcon: renderIcon};
 };

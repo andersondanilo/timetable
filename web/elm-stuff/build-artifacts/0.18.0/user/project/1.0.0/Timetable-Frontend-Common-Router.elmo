@@ -1,0 +1,33 @@
+var _user$project$Timetable_Frontend_Common_Router$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$Timetable_Frontend_Common_Router$LoginRoute = {ctor: 'LoginRoute'};
+var _user$project$Timetable_Frontend_Common_Router$SignupRoute = {ctor: 'SignupRoute'};
+var _user$project$Timetable_Frontend_Common_Router$IndexRoute = {ctor: 'IndexRoute'};
+var _user$project$Timetable_Frontend_Common_Router$parser = _evancz$url_parser$UrlParser$oneOf(
+	{
+		ctor: '::',
+		_0: A2(_evancz$url_parser$UrlParser$map, _user$project$Timetable_Frontend_Common_Router$IndexRoute, _evancz$url_parser$UrlParser$top),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_evancz$url_parser$UrlParser$map,
+				_user$project$Timetable_Frontend_Common_Router$SignupRoute,
+				_evancz$url_parser$UrlParser$s('signup')),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_evancz$url_parser$UrlParser$map,
+					_user$project$Timetable_Frontend_Common_Router$LoginRoute,
+					_evancz$url_parser$UrlParser$s('login')),
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Timetable_Frontend_Common_Router$toRoute = function (location) {
+	var maybeRoute = A2(_evancz$url_parser$UrlParser$parsePath, _user$project$Timetable_Frontend_Common_Router$parser, location);
+	var _p0 = maybeRoute;
+	if (_p0.ctor === 'Nothing') {
+		return _user$project$Timetable_Frontend_Common_Router$NotFoundRoute;
+	} else {
+		return _p0._0;
+	}
+};

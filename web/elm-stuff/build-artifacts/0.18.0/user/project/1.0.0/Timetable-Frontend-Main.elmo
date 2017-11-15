@@ -1,0 +1,18 @@
+var _user$project$Timetable_Frontend_Main$init = function (location) {
+	return {
+		ctor: '_Tuple2',
+		_0: _user$project$Timetable_Frontend_Model$initialModel(location),
+		_1: _elm_lang$core$Platform_Cmd$none
+	};
+};
+var _user$project$Timetable_Frontend_Main$main = A2(
+	_elm_lang$navigation$Navigation$program,
+	_user$project$Timetable_Frontend_Update$UrlChange,
+	{
+		init: _user$project$Timetable_Frontend_Main$init,
+		view: _user$project$Timetable_Frontend_View$view,
+		update: _user$project$Timetable_Frontend_Update$update,
+		subscriptions: function (_p0) {
+			return _elm_lang$core$Platform_Sub$none;
+		}
+	})();

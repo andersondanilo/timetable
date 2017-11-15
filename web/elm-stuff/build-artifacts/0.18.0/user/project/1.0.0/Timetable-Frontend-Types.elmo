@@ -1,0 +1,13 @@
+var _user$project$Timetable_Frontend_Types$Model = function (a) {
+	return {currentRoute: a};
+};
+var _user$project$Timetable_Frontend_Types$NavigateTo = function (a) {
+	return {ctor: 'NavigateTo', _0: a};
+};
+var _user$project$Timetable_Frontend_Types$UrlChange = function (a) {
+	return {ctor: 'UrlChange', _0: a};
+};
+var _user$project$Timetable_Frontend_Types$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$Timetable_Frontend_Types$LoginRoute = {ctor: 'LoginRoute'};
+var _user$project$Timetable_Frontend_Types$SignupRoute = {ctor: 'SignupRoute'};
+var _user$project$Timetable_Frontend_Types$IndexRoute = {ctor: 'IndexRoute'};

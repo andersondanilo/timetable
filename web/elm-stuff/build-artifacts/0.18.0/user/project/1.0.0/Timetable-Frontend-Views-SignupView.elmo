@@ -1,0 +1,134 @@
+var _user$project$Timetable_Frontend_Views_SignupView$formInput = F3(
+	function (inputType, labelText, nameText) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('form-group'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$label,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(labelText),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$input,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$type_(inputType),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$name(nameText),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('form-control'),
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$Timetable_Frontend_Views_SignupView$viewRegisterForm = {
+	ctor: '::',
+	_0: _user$project$Timetable_Common_ViewHelpers$viewSectionTitle('Cadastre-se'),
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$p,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Digite as informações abaixo para efetuar o seu cadastro'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$form,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A3(_user$project$Timetable_Frontend_Views_SignupView$formInput, 'text', 'Nome', 'name'),
+					_1: {
+						ctor: '::',
+						_0: A3(_user$project$Timetable_Frontend_Views_SignupView$formInput, 'email', 'E-mail', 'email'),
+						_1: {
+							ctor: '::',
+							_0: A3(_user$project$Timetable_Frontend_Views_SignupView$formInput, 'password', 'Senha', 'password'),
+							_1: {
+								ctor: '::',
+								_0: A3(_user$project$Timetable_Frontend_Views_SignupView$formInput, 'password', 'Repita a Senha', 'repeat_password'),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$button,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('btn btn-primary'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$type_('submit'),
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Cadastrar'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _user$project$Timetable_Frontend_Views_SignupView$viewSignup = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: _user$project$Timetable_Common_ViewHelpers$viewTitle('Cadastre-se'),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Timetable_Common_ViewHelpers$viewContent(
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('row'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('col-md-6'),
+									_1: {ctor: '[]'}
+								},
+								_user$project$Timetable_Frontend_Views_SignupView$viewRegisterForm),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		}
+	});

@@ -1,0 +1,10 @@
+var _user$project$Timetable_Frontend_LoginPage_Update$update = F3(
+	function (msg, model, appModel) {
+		return {ctor: '_Tuple3', _0: model, _1: appModel, _2: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$Timetable_Frontend_LoginPage_Update$ChangePassword = function (a) {
+	return {ctor: 'ChangePassword', _0: a};
+};
+var _user$project$Timetable_Frontend_LoginPage_Update$ChangeUsername = function (a) {
+	return {ctor: 'ChangeUsername', _0: a};
+};

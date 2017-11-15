@@ -48,19 +48,19 @@ Elm.Timetable.Frontend.Views.LayoutView.make = function (_elm) {
               _U.list([$Html$Attributes.$class("nav navbar-nav")]),
               _U.list([A2($Html.li,_U.list([]),_U.list([A2($Html.a,_U.list([$Html$Attributes.href("#login")]),_U.list([$Html.text("ENTRAR")]))]))]))]))]))]));
    });
-   var showCurrentPage = F2(function (address,model) {
+   var renderCurrentPage = F2(function (address,model) {
       var _p0 = model.route;
       switch (_p0.ctor)
-      {case "HomeRoute": return A2($Timetable$Frontend$Views$IndexView.showIndex,address,model);
-         case "SignupRoute": return $Timetable$Frontend$Views$SignupView.showSignup;
-         case "LoginRoute": return $Timetable$Frontend$Views$LoginView.showLogin;
+      {case "HomeRoute": return A2($Timetable$Frontend$Views$IndexView.renderIndex,address,model);
+         case "SignupRoute": return $Timetable$Frontend$Views$SignupView.renderSignup;
+         case "LoginRoute": return $Timetable$Frontend$Views$LoginView.renderLogin;
          default: return A2($Html.div,
            _U.list([]),
-           _U.list([$Timetable$Common$ViewHelpers.showTitle("Página não encontrada")
-                   ,$Timetable$Common$ViewHelpers.showContent(_U.list([$Html.text("A página que você procura não foi encontrada")]))]));}
+           _U.list([$Timetable$Common$ViewHelpers.renderTitle("Página não encontrada")
+                   ,$Timetable$Common$ViewHelpers.renderContent(_U.list([$Html.text("A página que você procura não foi encontrada")]))]));}
    });
    var index = F2(function (address,model) {
-      return A2($Html.div,_U.list([]),_U.list([A2(header,address,model),A2(showCurrentPage,address,model),$Timetable$Common$Layout.footerwrap]));
+      return A2($Html.div,_U.list([]),_U.list([A2(header,address,model),A2(renderCurrentPage,address,model),$Timetable$Common$Layout.footerwrap]));
    });
-   return _elm.Timetable.Frontend.Views.LayoutView.values = {_op: _op,index: index,showCurrentPage: showCurrentPage,header: header};
+   return _elm.Timetable.Frontend.Views.LayoutView.values = {_op: _op,index: index,renderCurrentPage: renderCurrentPage,header: header};
 };

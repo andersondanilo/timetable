@@ -1,19 +1,15 @@
-module Timetable.Dashboard.Types where
+module Timetable.Dashboard.Types exposing (..)
 
-import Hop.Types exposing (Location)
+import Navigation
+
+type alias Model =
+  { currentRoute : Route
+  }
+
+type Msg
+  = UrlChange Navigation.Location
+  | NavigateTo String
 
 type Route
-  = HomeRoute
+  = IndexRoute
   | NotFoundRoute
-
-type alias Model
-  =
-    {
-      location: Location,
-      route: Route
-    }
-
-type Action
-  = ApplyRoute ( Route, Location )
-  | HopAction ()
-  | NavigateTo String

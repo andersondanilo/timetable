@@ -44,20 +44,20 @@ Elm.Timetable.Dashboard.Layout.LayoutView.make = function (_elm) {
               _U.list([$Html$Attributes.$class("navbar-collapse collapse navbar-right")]),
               _U.list([A2($Html.ul,_U.list([$Html$Attributes.$class("nav navbar-nav")]),_U.list([A2($Html.li,_U.list([]),_U.list([]))]))]))]))]));
    });
-   var showCurrentPage = F2(function (address,model) {
+   var renderCurrentPage = F2(function (address,model) {
       var _p0 = model.route;
       if (_p0.ctor === "HomeRoute") {
-            return A2($Timetable$Dashboard$Dashboard$View.showDashboard,address,model);
+            return A2($Timetable$Dashboard$Dashboard$View.renderDashboard,address,model);
          } else {
             return A2($Html.div,
             _U.list([]),
-            _U.list([$Timetable$Common$ViewHelpers.showTitle("Página não encontrada")
-                    ,$Timetable$Common$ViewHelpers.showContent(_U.list([$Html.text("A página que você procura não foi encontrada")]))]));
+            _U.list([$Timetable$Common$ViewHelpers.renderTitle("Página não encontrada")
+                    ,$Timetable$Common$ViewHelpers.renderContent(_U.list([$Html.text("A página que você procura não foi encontrada")]))]));
          }
    });
    var index = F2(function (address,model) {
-      return A2($Html.div,_U.list([]),_U.list([A2(header,address,model),A2(showCurrentPage,address,model),$Timetable$Common$Layout.footerwrap]));
+      return A2($Html.div,_U.list([]),_U.list([A2(header,address,model),A2(renderCurrentPage,address,model),$Timetable$Common$Layout.footerwrap]));
    });
    var css = function (path) {    return A3($Html.node,"link",_U.list([$Html$Attributes.rel("stylesheet"),$Html$Attributes.href(path)]),_U.list([]));};
-   return _elm.Timetable.Dashboard.Layout.LayoutView.values = {_op: _op,css: css,index: index,showCurrentPage: showCurrentPage,header: header};
+   return _elm.Timetable.Dashboard.Layout.LayoutView.values = {_op: _op,css: css,index: index,renderCurrentPage: renderCurrentPage,header: header};
 };

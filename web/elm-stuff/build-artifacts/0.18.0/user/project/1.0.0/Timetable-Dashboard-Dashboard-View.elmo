@@ -1,0 +1,141 @@
+var _user$project$Timetable_Dashboard_Dashboard_View$viewIcon = F2(
+	function (name, image) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('col-md-4'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('row'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('col-md-3'),
+								_1: {ctor: '[]'}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('col-md-6 text-center'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$img,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$src(image),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('img-responsive'),
+												_1: {ctor: '[]'}
+											}
+										},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$h3,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(name),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$br,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$br,
+													{ctor: '[]'},
+													{ctor: '[]'}),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$div,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('col-md-3'),
+										_1: {ctor: '[]'}
+									},
+									{ctor: '[]'}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Timetable_Dashboard_Dashboard_View$viewDashboard = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$Timetable_Common_ViewHelpers$viewTitle('Dashboard'),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Timetable_Common_ViewHelpers$viewContent(
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('row'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(_user$project$Timetable_Dashboard_Dashboard_View$viewIcon, 'Agenda', 'assets/img/icons/clock-icon.png'),
+								_1: {
+									ctor: '::',
+									_0: A2(_user$project$Timetable_Dashboard_Dashboard_View$viewIcon, 'Gerenciar Especialidades', 'assets/img/icons/favourite-2-icon.png'),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Timetable_Dashboard_Dashboard_View$viewIcon, 'Gerenciar Salas', 'assets/img/icons/phonebook-icon.png'),
+										_1: {
+											ctor: '::',
+											_0: A2(_user$project$Timetable_Dashboard_Dashboard_View$viewIcon, 'Gerenciar Profissionais', 'assets/img/icons/contact-icon.png'),
+											_1: {
+												ctor: '::',
+												_0: A2(_user$project$Timetable_Dashboard_Dashboard_View$viewIcon, 'Configurações', 'assets/img/icons/settings-3-icon.png'),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};

@@ -1,9 +1,9 @@
-module Timetable.Common.Layout where
+module Timetable.Common.Layout exposing (..)
 
 import Html exposing (text, div, a, p, i, br, h4, Html)
 import Html.Attributes exposing (href, class, id)
 
-footerwrap : Html
+footerwrap : Html msg
 footerwrap =
   div [ id "footerwrap" ] [
     div [ class "container" ] [

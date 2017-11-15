@@ -26,30 +26,30 @@ Elm.Timetable.Frontend.Views.LoginView.make = function (_elm) {
       _U.list([A2($Html.label,_U.list([]),_U.list([$Html.text(labelText)]))
               ,A2($Html.input,_U.list([$Html$Attributes.name(nameText),$Html$Attributes.$class("form-control")]),_U.list([]))]));
    });
-   var showRegisterForm = _U.list([$Timetable$Common$ViewHelpers.showSectionTitle("Cadastre-se")
-                                  ,A2($Html.p,_U.list([]),_U.list([$Html.text("Se você ainda não possui um cadastro")]))
-                                  ,A2($Html.a,
-                                  _U.list([$Html$Attributes.$class("btn btn-lg btn-primary"),$Html$Attributes.href("#signup")]),
-                                  _U.list([$Html.text("Começe agora")]))]);
-   var showEnterForm = _U.list([$Timetable$Common$ViewHelpers.showSectionTitle("Entrar")
-                               ,A2($Html.p,_U.list([]),_U.list([$Html.text("Se você já está cadastrado, entre através do formulário abaixo")]))
-                               ,A2($Html.form,
-                               _U.list([]),
-                               _U.list([A2(formInput,"E-mail","email")
-                                       ,A2(formInput,"Senha","senha")
-                                       ,A2($Html.a,
-                                       _U.list([$Html$Attributes.href("dashboard.html"),$Html$Attributes.$class("btn btn-primary")]),
-                                       _U.list([$Html.text("Entrar")]))]))]);
-   var showLogin = A2($Html.div,
+   var renderRegisterForm = _U.list([$Timetable$Common$ViewHelpers.renderSectionTitle("Cadastre-se")
+                                    ,A2($Html.p,_U.list([]),_U.list([$Html.text("Se você ainda não possui um cadastro")]))
+                                    ,A2($Html.a,
+                                    _U.list([$Html$Attributes.$class("btn btn-lg btn-primary"),$Html$Attributes.href("#signup")]),
+                                    _U.list([$Html.text("Começe agora")]))]);
+   var renderEnterForm = _U.list([$Timetable$Common$ViewHelpers.renderSectionTitle("Entrar")
+                                 ,A2($Html.p,_U.list([]),_U.list([$Html.text("Se você já está cadastrado, entre através do formulário abaixo")]))
+                                 ,A2($Html.form,
+                                 _U.list([]),
+                                 _U.list([A2(formInput,"E-mail","email")
+                                         ,A2(formInput,"Senha","senha")
+                                         ,A2($Html.a,
+                                         _U.list([$Html$Attributes.href("dashboard.html"),$Html$Attributes.$class("btn btn-primary")]),
+                                         _U.list([$Html.text("Entrar")]))]))]);
+   var renderLogin = A2($Html.div,
    _U.list([]),
-   _U.list([$Timetable$Common$ViewHelpers.showTitle("Entrar")
-           ,$Timetable$Common$ViewHelpers.showContent(_U.list([A2($Html.div,
+   _U.list([$Timetable$Common$ViewHelpers.renderTitle("Entrar")
+           ,$Timetable$Common$ViewHelpers.renderContent(_U.list([A2($Html.div,
            _U.list([$Html$Attributes.$class("row")]),
-           _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),showEnterForm)
-                   ,A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),showRegisterForm)]))]))]));
+           _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),renderEnterForm)
+                   ,A2($Html.div,_U.list([$Html$Attributes.$class("col-md-6")]),renderRegisterForm)]))]))]));
    return _elm.Timetable.Frontend.Views.LoginView.values = {_op: _op
-                                                           ,showLogin: showLogin
-                                                           ,showEnterForm: showEnterForm
-                                                           ,showRegisterForm: showRegisterForm
+                                                           ,renderLogin: renderLogin
+                                                           ,renderEnterForm: renderEnterForm
+                                                           ,renderRegisterForm: renderRegisterForm
                                                            ,formInput: formInput};
 };

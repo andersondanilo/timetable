@@ -1,0 +1,5 @@
+var _user$project$Timetable_Frontend_LoginPage_Model$initialModel = {username: '', password: ''};
+var _user$project$Timetable_Frontend_LoginPage_Model$Model = F2(
+	function (a, b) {
+		return {username: a, password: b};
+	});

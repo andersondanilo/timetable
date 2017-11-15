@@ -1,0 +1,5 @@
+var _user$project$Timetable_Frontend_SignupPage_Model$initialModel = {name: '', email: '', password: '', repeatPassword: '', isSending: false};
+var _user$project$Timetable_Frontend_SignupPage_Model$Model = F5(
+	function (a, b, c, d, e) {
+		return {name: a, email: b, password: c, repeatPassword: d, isSending: e};
+	});

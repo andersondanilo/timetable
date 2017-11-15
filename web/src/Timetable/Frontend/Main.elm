@@ -1,26 +1,20 @@
-module Timetable.Frontend.Main where
+module Timetable.Frontend.Main exposing (..)
 
-import Timetable.Frontend.App exposing (startApp)
-import Timetable.Frontend.Routes exposing (router)
-import Timetable.Frontend.Types exposing (Model)
-import Signal
-import Effects exposing (Never)
-import StartApp
-import Task exposing (Task)
-import Html exposing(Html)
+import Timetable.Frontend.View exposing (view)
+import Timetable.Frontend.Update exposing (update, Msg(UrlChange))
+import Timetable.Frontend.Model exposing (Model, initialModel)
+import Navigation
 
-app : StartApp.App Model
-app =
-  startApp
-
-main : Signal Html
 main =
-  app.html
+  Navigation.program UrlChange
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = (\_ -> Sub.none)
+    }
 
-port tasks : Signal (Task.Task Never ())
-port tasks =
-  app.tasks
-
-port routeRunTask : Task () ()
-port routeRunTask =
-  router.run
+init : Navigation.Location -> ( Model, Cmd msg )
+init location =
+  ( initialModel(location)
+  , Cmd.none
+  )

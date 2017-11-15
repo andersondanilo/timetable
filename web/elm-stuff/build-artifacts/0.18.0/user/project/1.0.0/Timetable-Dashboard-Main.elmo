@@ -1,0 +1,40 @@
+var _user$project$Timetable_Dashboard_Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'UrlChange') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						currentRoute: _user$project$Timetable_Dashboard_Router$toRoute(_p0._0)
+					}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: model,
+				_1: _elm_lang$navigation$Navigation$newUrl(_p0._0)
+			};
+		}
+	});
+var _user$project$Timetable_Dashboard_Main$init = function (location) {
+	return {
+		ctor: '_Tuple2',
+		_0: _user$project$Timetable_Dashboard_Types$Model(
+			_user$project$Timetable_Dashboard_Router$toRoute(location)),
+		_1: _elm_lang$core$Platform_Cmd$none
+	};
+};
+var _user$project$Timetable_Dashboard_Main$main = A2(
+	_elm_lang$navigation$Navigation$program,
+	_user$project$Timetable_Dashboard_Types$UrlChange,
+	{
+		init: _user$project$Timetable_Dashboard_Main$init,
+		view: _user$project$Timetable_Dashboard_Views_LayoutView$view,
+		update: _user$project$Timetable_Dashboard_Main$update,
+		subscriptions: function (_p1) {
+			return _elm_lang$core$Platform_Sub$none;
+		}
+	})();

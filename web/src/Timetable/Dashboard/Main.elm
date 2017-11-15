@@ -1,26 +1,31 @@
-module Timetable.Dashboard.Main where
+module Timetable.Dashboard.Main exposing (..)
 
-import Timetable.Dashboard.App exposing (startApp)
-import Timetable.Dashboard.Routes exposing (router)
-import Timetable.Dashboard.Types exposing (Model)
-import Signal
-import Effects exposing (Never)
-import StartApp
-import Task exposing (Task)
-import Html exposing(Html)
+import Timetable.Dashboard.Views.LayoutView exposing (view)
+import Timetable.Dashboard.Types exposing (..)
+import Timetable.Dashboard.Router exposing (toRoute)
+import Navigation
 
-app : StartApp.App Model
-app =
-  startApp
-
-main : Signal Html
 main =
-  app.html
+  Navigation.program UrlChange
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = (\_ -> Sub.none)
+    }
 
-port tasks : Signal (Task.Task Never ())
-port tasks =
-  app.tasks
+init : Navigation.Location -> ( Model, Cmd Msg )
+init location =
+  ( Model(toRoute(location))
+  , Cmd.none
+  )
 
-port routeRunTask : Task () ()
-port routeRunTask =
-  router.run
+update : Msg -> Model -> (Model, Cmd Msg)
+update msg model =
+  case msg of
+    UrlChange location ->
+      ( { model | currentRoute = toRoute(location) }
+      , Cmd.none
+      )
+
+    NavigateTo path ->
+      ( model, Navigation.newUrl(path) )

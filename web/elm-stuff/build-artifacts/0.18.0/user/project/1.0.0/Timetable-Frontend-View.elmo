@@ -1,0 +1,196 @@
+var _user$project$Timetable_Frontend_View$header = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('navbar navbar-default navbar-fixed-top'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('container'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('navbar-header'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('navbar-toggle'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$span,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('sr-only'),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Toggle navigation'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$span,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('icon-bar'),
+												_1: {ctor: '[]'}
+											},
+											{ctor: '[]'}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$span,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('icon-bar'),
+													_1: {ctor: '[]'}
+												},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$span,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class('icon-bar'),
+														_1: {ctor: '[]'}
+													},
+													{ctor: '[]'}),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('navbar-brand'),
+											_1: {ctor: '[]'}
+										},
+										_user$project$Timetable_Frontend_Common_ViewHelpers$clickTo('/')),
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('TIMETABLE'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('navbar-collapse collapse navbar-right'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$ul,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('nav navbar-nav'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$li,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$a,
+													_user$project$Timetable_Frontend_Common_ViewHelpers$clickTo('login'),
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('ENTRAR'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Timetable_Frontend_View$viewCurrentPage = function (model) {
+	var _p0 = model.currentRoute;
+	switch (_p0.ctor) {
+		case 'IndexRoute':
+			return _user$project$Timetable_Frontend_HomePage_View$view(model);
+		case 'SignupRoute':
+			return A2(_user$project$Timetable_Frontend_SignupPage_View$view, model.signupPage, model);
+		case 'LoginRoute':
+			return A2(_user$project$Timetable_Frontend_LoginPage_View$view, model.loginPage, model);
+		default:
+			return A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _user$project$Timetable_Common_ViewHelpers$viewTitle('Página não encontrada'),
+					_1: {
+						ctor: '::',
+						_0: _user$project$Timetable_Common_ViewHelpers$viewContent(
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('A página que você procura não foi encontrada'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				});
+	}
+};
+var _user$project$Timetable_Frontend_View$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$Timetable_Frontend_View$header(model),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Timetable_Frontend_View$viewCurrentPage(model),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Timetable_Common_Layout$footerwrap,
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};

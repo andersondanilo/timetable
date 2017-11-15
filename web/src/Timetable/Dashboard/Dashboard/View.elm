@@ -1,28 +1,27 @@
-module Timetable.Dashboard.Dashboard.View where
+module Timetable.Dashboard.Dashboard.View exposing (..)
 
 import Html exposing (Html, div, h3, text, img, br)
 import Html.Attributes exposing (class, src)
-import Signal
-import Timetable.Dashboard.Types exposing(Model, Action)
-import Timetable.Common.ViewHelpers exposing (showTitle, showContent)
+import Timetable.Dashboard.Types exposing(Model, Msg)
+import Timetable.Common.ViewHelpers exposing (viewTitle, viewContent)
 
-showDashboard : Signal.Address Action -> Model -> Html
-showDashboard address model =
+viewDashboard : Model -> Html Msg
+viewDashboard model =
   div[] [
-    showTitle "Dashboard",
-    showContent [
+    viewTitle "Dashboard",
+    viewContent [
       div [ class "row" ] [
-        showIcon "Agenda" "assets/img/icons/clock-icon.png",
-        showIcon "Gerenciar Especialidades" "assets/img/icons/favourite-2-icon.png",
-        showIcon "Gerenciar Salas" "assets/img/icons/phonebook-icon.png",
-        showIcon "Gerenciar Profissionais" "assets/img/icons/contact-icon.png",
-        showIcon "Configurações" "assets/img/icons/settings-3-icon.png"
+        viewIcon "Agenda" "assets/img/icons/clock-icon.png",
+        viewIcon "Gerenciar Especialidades" "assets/img/icons/favourite-2-icon.png",
+        viewIcon "Gerenciar Salas" "assets/img/icons/phonebook-icon.png",
+        viewIcon "Gerenciar Profissionais" "assets/img/icons/contact-icon.png",
+        viewIcon "Configurações" "assets/img/icons/settings-3-icon.png"
       ]
     ]
   ]
 
-showIcon : String -> String -> Html
-showIcon name image =
+viewIcon : String -> String -> Html Msg
+viewIcon name image =
   div [ class "col-md-4"] [
     div [ class "row" ] [
       div [ class "col-md-3" ] [],

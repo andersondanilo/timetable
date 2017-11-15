@@ -1,0 +1,91 @@
+var _user$project$Timetable_Common_ViewHelpers$commonClickTo = F2(
+	function (command, path) {
+		return {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$href(path),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_elm_lang$html$Html_Events$onWithOptions,
+					'click',
+					{stopPropagation: true, preventDefault: true},
+					A2(
+						_elm_lang$core$Json_Decode$map,
+						function (_p0) {
+							return command(path);
+						},
+						_elm_lang$core$Json_Decode$value)),
+				_1: {ctor: '[]'}
+			}
+		};
+	});
+var _user$project$Timetable_Common_ViewHelpers$viewSectionTitle = function (title) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h4,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(title),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('hline'),
+						_1: {ctor: '[]'}
+					},
+					{ctor: '[]'}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Timetable_Common_ViewHelpers$viewContent = function (contentBody) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('container mtb'),
+			_1: {ctor: '[]'}
+		},
+		contentBody);
+};
+var _user$project$Timetable_Common_ViewHelpers$viewTitle = function (title) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('blue'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('container'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$h3,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(title),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};

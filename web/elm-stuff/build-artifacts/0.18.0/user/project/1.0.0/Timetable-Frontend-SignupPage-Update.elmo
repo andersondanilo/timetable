@@ -1,0 +1,45 @@
+var _user$project$Timetable_Frontend_SignupPage_Update$changeField = F3(
+	function (model, field, newValue) {
+		var _p0 = field;
+		switch (_p0.ctor) {
+			case 'Name':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{name: newValue});
+			case 'Email':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{email: newValue});
+			case 'Password':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{password: newValue});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{repeatPassword: newValue});
+		}
+	});
+var _user$project$Timetable_Frontend_SignupPage_Update$processChangeField = F4(
+	function (model, appModel, field, newValue) {
+		var newModel = A3(_user$project$Timetable_Frontend_SignupPage_Update$changeField, model, field, newValue);
+		return {ctor: '_Tuple3', _0: newModel, _1: appModel, _2: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$Timetable_Frontend_SignupPage_Update$update = F3(
+	function (msg, model, appModel) {
+		var _p1 = msg;
+		if (_p1.ctor === 'ChangeField') {
+			return A4(_user$project$Timetable_Frontend_SignupPage_Update$processChangeField, model, appModel, _p1._0, _p1._1);
+		} else {
+			return {ctor: '_Tuple3', _0: model, _1: appModel, _2: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _user$project$Timetable_Frontend_SignupPage_Update$SendForm = {ctor: 'SendForm'};
+var _user$project$Timetable_Frontend_SignupPage_Update$ChangeField = F2(
+	function (a, b) {
+		return {ctor: 'ChangeField', _0: a, _1: b};
+	});
+var _user$project$Timetable_Frontend_SignupPage_Update$RepeatPassword = {ctor: 'RepeatPassword'};
+var _user$project$Timetable_Frontend_SignupPage_Update$Password = {ctor: 'Password'};
+var _user$project$Timetable_Frontend_SignupPage_Update$Email = {ctor: 'Email'};
+var _user$project$Timetable_Frontend_SignupPage_Update$Name = {ctor: 'Name'};

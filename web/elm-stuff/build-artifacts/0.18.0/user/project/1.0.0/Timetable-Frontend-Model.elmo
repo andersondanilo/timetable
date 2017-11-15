@@ -1,0 +1,11 @@
+var _user$project$Timetable_Frontend_Model$initialModel = function (location) {
+	return {
+		currentRoute: _user$project$Timetable_Frontend_Common_Router$toRoute(location),
+		signupPage: _user$project$Timetable_Frontend_SignupPage_Model$initialModel,
+		loginPage: _user$project$Timetable_Frontend_LoginPage_Model$initialModel
+	};
+};
+var _user$project$Timetable_Frontend_Model$Model = F3(
+	function (a, b, c) {
+		return {currentRoute: a, signupPage: b, loginPage: c};
+	});
